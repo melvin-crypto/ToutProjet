@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ *knug
  * @author melvi
  */
 public class frmMenu extends javax.swing.JFrame {
