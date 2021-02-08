@@ -263,7 +263,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         int quantiteAchetee = Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(), 4).toString());
         int prixAchat = Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(), 3).toString());
         
-        double res = valeurActuelle*quantiteAchetee-();
+        double res = (valeurActuelle*quantiteAchetee)-(prixAchat*quantiteAchetee);
         lblPortefeuille.setText(String.valueOf(res));
     }//GEN-LAST:event_tblTradersMouseClicked
 
