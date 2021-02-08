@@ -236,6 +236,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
          double valeurActuelle=0;
          double quantiteAchetee =0;
          double prixAchat = 0;
+         
+         double valeurActuelle2=0;
+         double quantiteAchetee2 =0;
+         double prixAchat2 = 0;
         
         for(Trader trad : mesTraders)
         
@@ -257,13 +261,28 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         valeurActuelle = valeurActuelle+act.getValeurActuelle();
                         quantiteAchetee = quantiteAchetee+act.getAchatTrader();
                         prixAchat = prixAchat+act.getAchatTrader();
-                    
+                        
+                        valeurActuelle2 = act.getValeurActuelle();
+                        quantiteAchetee2=act.getAchatTrader();
+                        prixAchat2 = act.getAchatTrader();
                 }
             }
         }
         
-        double res =(valeurActuelle*quantiteAchetee)-(prixAchat*quantiteAchetee);
-        lblPortefeuille.setText(String.valueOf(res));
+        double resultat1 =(valeurActuelle*quantiteAchetee)-(prixAchat*quantiteAchetee);
+        lblPortefeuille.setText(String.valueOf(resultat1));
+        double resultat2 =(valeurActuelle2*quantiteAchetee2)-(prixAchat2*quantiteAchetee2);
+        
+        if(resultat2<0){
+            
+            lblMessage.setText("Vous êtes en perte de "+String.valueOf(resultat2));
+        }
+        
+        else{
+    
+           lblMessage.setText("Vous gagnez de l'argent sur cette action"+String.valueOf(resultat2));
+        
+        }
                 
     }//GEN-LAST:event_tblTradersMouseClicked
 
@@ -282,12 +301,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
         else if(Integer.parseInt(btnVendre.getText())<0){
             JOptionPane.showMessageDialog(this, "Veuillez saisir une quantité");
         }
-        /*else if(){
+       /* else if(getAchete()<txtQuantiteVendue.setText(t)){
           JOptionPane.showMessageDialog(this, "Vous ne pouvez pas vendre plus que ce que vous possédez!");
         }*/
         
        /* else{
             frais = 0.32* Integer.parseInt(btnVendre.getText());
+         v.remove(trad.getNumero());
         }*/
     }//GEN-LAST:event_btnVendreMouseClicked
 
