@@ -230,8 +230,39 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void tblTradersMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblTradersMouseClicked
         
-        // A vous de jouer
+         dtmActions.getDataVector().removeAllElements();
+         
+       /*  while(tblActions.getRowCount()!=0)
+        {
+            // On supprime TOUJOURS la première
+            // A l'indice 0
+            dtmActions.removeRow(0);
+        }*/
         
+        for(Trader trad : mesTraders)
+        {
+            for(Action act : trad.getLesTraders())
+            {
+               // int trader = Integer.parseInt( tblTraders.getValueAt(tblTraders.getSelectedRow(), 0).toString());
+               /* if(trad.getLesTraders().equals(trader))
+                {*/
+                    
+                        v = new Vector();
+                        v.add(act.getNumero());
+                        v.add(act.getNom());
+                        v.add(act.getValeurActuelle());
+                        v.add(act.getAchatTrader());
+                        v.add(act.getAchete());
+                        dtmActions.addRow(v);
+                    
+                }
+           // }
+        }
+        
+        int valeurActuelle = Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(), 2).toString());
+
+        double res = valeurActuelle;
+        lblPortefeuille.setText(String.valueOf(res));
     }//GEN-LAST:event_tblTradersMouseClicked
 
     private void tblActionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblActionsMouseClicked
@@ -242,13 +273,23 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnVendreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendreMouseClicked
         
-        // A vous de jouer
+        if(btnVendre.getText().compareTo("")==0){
+            
+            JOptionPane.showMessageDialog(this, "Selectionner une action");                  
+        }       
+        else if(Integer.parseInt(btnVendre.getText())<0){
+            JOptionPane.showMessageDialog(this, "Veuillez saisir une quantité");
+        }
+       /* else if(){
+          
+        }*/
         
+       /* else{
+            frais = 0.32* Integer.parseInt(btnVendre.getText());
+        }*/
     }//GEN-LAST:event_btnVendreMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
