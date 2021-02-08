@@ -232,7 +232,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
          
       
          int trader = Integer.parseInt( tblTraders.getValueAt(tblTraders.getSelectedRow(), 0).toString());
-         // String trader = tblTraders.getValueAt(tblTraders.getSelectedRow(), 1).toString();
+          
          double valeurActuelle=0;
          double quantiteAchetee =0;
          double prixAchat = 0;
@@ -265,6 +265,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         valeurActuelle2 = act.getValeurActuelle();
                         quantiteAchetee2=act.getAchatTrader();
                         prixAchat2 = act.getAchatTrader();
+                    
+                    
                 }
             }
         }
@@ -294,20 +296,31 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnVendreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendreMouseClicked
         
-        if(btnVendre.getText().compareTo("")==0){
+        String choix = (txtQuantiteVendue.getText()).toString();
+        int achatTotal= Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(), 4).toString());
+
+        
+        if(txtQuantiteVendue.getText().compareTo("")==0){
             
             JOptionPane.showMessageDialog(this, "Selectionner une action");                  
         }       
-        else if(Integer.parseInt(btnVendre.getText())<0){
-            JOptionPane.showMessageDialog(this, "Veuillez saisir une quantité");
+        else if(Integer.parseInt(txtQuantiteVendue.getText())<0){
+            JOptionPane.showMessageDialog(this, "Veuillez saisir une quantité positive");
         }
-       /* else if(getAchete()<txtQuantiteVendue.setText(t)){
+       /* else if(achatTotal<Integer.parseInt(choix){
           JOptionPane.showMessageDialog(this, "Vous ne pouvez pas vendre plus que ce que vous possédez!");
         }*/
         
        /* else{
-            frais = 0.32* Integer.parseInt(btnVendre.getText());
-         v.remove(trad.getNumero());
+            
+            if(achatTotal==choix){
+            JOptionPane.showMessageDialog(this, "Vous ne possédez plus l'action!");
+            v.remove(v);
+            }
+            
+            else{
+                
+            }
         }*/
     }//GEN-LAST:event_btnVendreMouseClicked
 
