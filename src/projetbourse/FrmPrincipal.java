@@ -274,6 +274,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         double resultat1 =(valeurActuelle*quantiteAchetee)-(prixAchat*quantiteAchetee);
         lblPortefeuille.setText(String.valueOf(resultat1));
         double resultat2 =(valeurActuelle2*quantiteAchetee2)-(prixAchat2*quantiteAchetee2);
+      
         
         if(resultat2<0){
             
