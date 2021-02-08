@@ -173,7 +173,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
         dtmActions = (DefaultTableModel)tblActions.getModel();
         mesTraders = new ArrayList<>();
         
-        // A vous de jouer
+        Trader trad1 = new Trader(1,"Enzo");
+        Trader trad2 = new Trader(2,"Noa");
+        Trader trad3 = new Trader(3,"Lilou");
+        Trader trad4 = new Trader(4,"Milo");
+        
+        
+        Action act1 = new Action(1,"Twitter",169.15,159,110);
+        Action act2 = new Action(2,"Apple",171.89,173,54);
+        Action act3 = new Action(3,"Facebook",169.15,159,110);
+        Action act4 = new Action(4,"Microsoft",169.15,159,110);
+        Action act5 = new Action(5,"Dell",169.15,159,110);
+        Action act6 = new Action(6,"VMWare",169.15,159,110);
+        Action act7 = new Action(7,"IBM",169.15,159,110);
         
         
     }//GEN-LAST:event_formWindowOpened
