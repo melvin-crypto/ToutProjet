@@ -216,8 +216,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
          for(Trader trad : mesTraders){
             
             v= new Vector();
-            v.add(trad.getNom());
             v.add(trad.getNumero());
+            v.add(trad.getNom());
             dtmTraders.addRow(v);
             
         }
@@ -230,21 +230,21 @@ public class FrmPrincipal extends javax.swing.JFrame {
         
          dtmActions.getDataVector().removeAllElements();
          
-        while(tblActions.getRowCount()!=0)
-        {
-          
-            dtmActions.removeRow(0);
-        }
+      
+         int trader = Integer.parseInt( tblTraders.getValueAt(tblTraders.getSelectedRow(), 0).toString());
+         // String trader = tblTraders.getValueAt(tblTraders.getSelectedRow(), 1).toString();
+
         
         for(Trader trad : mesTraders)
+        
         {
+           // if(trad.getNom().compareTo(trader)==0)
+                if(trad.getNumero() == trader)
+                {
+            
             for(Action act : trad.getLesTraders())
             {
-               //int trader = Integer.parseInt( tblTraders.getValueAt(tblTraders.getSelectedRow(), 0).toString());
-               // String trader = tblTraders.getValueAt(tblTraders.getSelectedRow(), 1).toString();
-               /* if(act.getNom().compareTo(trader)==0)
-                {*/
-                    
+                
                         v = new Vector();
                         v.add(act.getNumero());
                         v.add(act.getNom());
@@ -254,15 +254,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         dtmActions.addRow(v);
                     
                 }
-           // }
+            }
         }
         
          /*int valeurActuelle = Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(), 2).toString());
         int quantiteAchetee = Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(), 4).toString());
         int prixAchat = Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(), 3).toString());
         
-        double res =(valeurActuelle*quantiteAchetee)-(prixAchat*quantiteAchetee);
-        lblPortefeuille.setText(String.valueOf(res));*/
+        double res =(valeurActuelle*quantiteAchetee)-(prixAchat*quantiteAchetee);*/
+        //lblPortefeuille.setText(String.valueOf());
         
         //double res = (double)tempsTotal / nbEmployes;
     }//GEN-LAST:event_tblTradersMouseClicked
