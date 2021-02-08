@@ -296,32 +296,32 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void btnVendreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVendreMouseClicked
         
-        String choix = (txtQuantiteVendue.getText()).toString();
+        String choix = txtQuantiteVendue.getText().toString();
         int achatTotal= Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(), 4).toString());
 
         
         if(txtQuantiteVendue.getText().compareTo("")==0){
             
-            JOptionPane.showMessageDialog(this, "Selectionner une action");                  
+            JOptionPane.showMessageDialog(this, "Ecrivez une somme de valeur à vendre");                  
         }       
         else if(Integer.parseInt(txtQuantiteVendue.getText())<0){
             JOptionPane.showMessageDialog(this, "Veuillez saisir une quantité positive");
         }
-       /* else if(achatTotal<Integer.parseInt(choix){
+        else if(achatTotal<Integer.parseInt(choix)){
           JOptionPane.showMessageDialog(this, "Vous ne pouvez pas vendre plus que ce que vous possédez!");
-        }*/
+        }
         
-       /* else{
+        else{
             
-            if(achatTotal==choix){
-            JOptionPane.showMessageDialog(this, "Vous ne possédez plus l'action!");
+            if(achatTotal==Integer.parseInt(choix)){
+            JOptionPane.showMessageDialog(this, "Dès à présent, Vous ne possédez plus l'action!");
             v.remove(v);
             }
             
             else{
-                
+                JOptionPane.showMessageDialog(this, "Vous venez de vendre une partie de vos actions.");
             }
-        }*/
+        }
     }//GEN-LAST:event_btnVendreMouseClicked
 
     
