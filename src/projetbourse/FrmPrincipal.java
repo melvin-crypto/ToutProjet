@@ -233,7 +233,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
       
          int trader = Integer.parseInt( tblTraders.getValueAt(tblTraders.getSelectedRow(), 0).toString());
          // String trader = tblTraders.getValueAt(tblTraders.getSelectedRow(), 1).toString();
-
+         double valeurActuelle=0;
+         double quantiteAchetee =0;
+         double prixAchat = 0;
         
         for(Trader trad : mesTraders)
         
@@ -252,19 +254,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         v.add(act.getAchatTrader());
                         v.add(act.getAchete());
                         dtmActions.addRow(v);
+                        valeurActuelle = valeurActuelle+act.getValeurActuelle();
+                        quantiteAchetee = quantiteAchetee+act.getAchatTrader();
+                        prixAchat = prixAchat+act.getAchatTrader();
                     
                 }
             }
         }
         
-         /*int valeurActuelle = Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(), 2).toString());
-        int quantiteAchetee = Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(), 4).toString());
-        int prixAchat = Integer.parseInt(tblActions.getValueAt(tblActions.getSelectedRow(), 3).toString());
-        
-        double res =(valeurActuelle*quantiteAchetee)-(prixAchat*quantiteAchetee);*/
-        //lblPortefeuille.setText(String.valueOf());
-        
-        //double res = (double)tempsTotal / nbEmployes;
+        double res =(valeurActuelle*quantiteAchetee)-(prixAchat*quantiteAchetee);
+        lblPortefeuille.setText(String.valueOf(res));
+                
     }//GEN-LAST:event_tblTradersMouseClicked
 
     private void tblActionsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblActionsMouseClicked
@@ -282,8 +282,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         else if(Integer.parseInt(btnVendre.getText())<0){
             JOptionPane.showMessageDialog(this, "Veuillez saisir une quantité");
         }
-       /* else if(){
-          
+        /*else if(){
+          JOptionPane.showMessageDialog(this, "Vous ne pouvez pas vendre plus que ce que vous possédez!");
         }*/
         
        /* else{
